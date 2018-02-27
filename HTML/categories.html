@@ -58,6 +58,18 @@ body {font-family: Arial;}
     background-color: #ccc;
 }
 
+.tab input{
+  background: #fff;
+  border-radius: 5px;
+  display: inline-block;
+  height: 25px;
+  margin: 0;
+  padding: 2.5px;
+  position: relative;
+  transform: translateY(25%);
+  width: 250px;
+}
+
 /* Style the tab content */
 .tabcontent {
     display: none;
@@ -80,7 +92,7 @@ body {font-family: Arial;}
   <a href="login.html"><button class="tablinks" onclick=""/>Log In</button></a>
   <div style="float: right; box-sizing: border-box;">
    <form action="/action_page.php">
-     <input type="text" placeholder="Search.." name="search" style="height: 45px;width: 250px">
+     <input type="text" placeholder="Search.." name="search">
      <button type="submit">search</button>
    </form>
   </div>
