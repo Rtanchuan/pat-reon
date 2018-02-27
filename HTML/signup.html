@@ -5,7 +5,9 @@
 body {font-family: Arial;}
 #parent {
    display: table;
-   width: 100%;
+   width: 30%;
+   margin:auto;
+   vertical-align: middle;
 }
 #form_signup {
    display: table-cell;
@@ -13,6 +15,15 @@ body {font-family: Arial;}
    vertical-align: middle;
    margin:auto;
 
+}
+#form_signup input{
+  height: 35px;
+  width: 200px;
+  text-align: center;
+}
+#form_signup button{
+  height: 35px;
+  width:170px;
 }
 .tab {
     overflow: hidden;
@@ -30,9 +41,9 @@ body {font-family: Arial;}
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
-	text-align:center;
-	float: right;
-	
+  text-align:center;
+  float: right;
+  
 }
 
 /* Change background color of buttons on hover */
@@ -54,18 +65,30 @@ body {font-family: Arial;}
     border-top: none;
 
 }
+
+.tab input{
+  background: #fff;
+  border-radius: 5px;
+  display: inline-block;
+  height: 25px;
+  margin: 0;
+  padding: 2.5px;
+  position: relative;
+  transform: translateY(25%);
+  width: 250px;
+}
 </style>
 </head>
 <body>
 <body>
-	<div class="tab" >
+  <div class="tab" >
   <a href="home page.html"><button class="tablinks" onclick=""style="float: left;">PAT-REON</button></a>
   
-  <a href="login.html"><button class="tablinks" onclick=""/>Log In</button></a>
-  <a href="categories.html"><button class="tablinks" onclick="">Categories</button> 	
+  <button class="tablinks" onclick=""/>Log In</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Explore Creators</button>   
   <div style="float: right; box-sizing: border-box;">
    <form action="/action_page.php">
-     <input type="text" placeholder="Search.." name="search" style="height: 45px;width: 250px">
+     <input type="text" placeholder="Search.." name="search">
      <button type="submit">search</button>
    </form>
   </div>
@@ -74,6 +97,8 @@ body {font-family: Arial;}
 </div>
 <div id="parent">
     <form id="form_signup">
+        <h1>Sign-up</h1>
+        <hr>
         <p>
             <input type="text" id="username" placeholder="Username" />
         </p>
