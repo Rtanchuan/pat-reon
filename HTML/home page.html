@@ -22,9 +22,9 @@ body {font-family: Arial;}
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
-	text-align:center;
-	float: right;
-	
+  text-align:center;
+  float: right;
+  
 }
 
 /* Change background color of buttons on hover */
@@ -46,6 +46,18 @@ body {font-family: Arial;}
     border-top: none;
 
 }
+
+.tab input{
+  background: #fff;
+  border-radius: 5px;
+  display: inline-block;
+  height: 25px;
+  margin: 0;
+  padding: 2.5px;
+  position: relative;
+  transform: translateY(25%);
+  width: 250px;
+}
 </style>
 </head>
 <body>
@@ -57,7 +69,7 @@ body {font-family: Arial;}
   <button class="tablinks" onclick="openCity(event, 'Tokyo')">Explore Creators</button> 	
   <div style="float: right; box-sizing: border-box;">
    <form action="/action_page.php">
-     <input type="text" placeholder="Search.." name="search" style="height: 45px;width: 250px">
+     <input type="text" placeholder="Search.." name="search">
      <button type="submit">search</button>
    </form>
   </div>
@@ -79,6 +91,12 @@ body {font-family: Arial;}
   <h3>Tokyo</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
+
+<h1 style="font-size: 100px;">What is Pat-Reon?</h1>
+<hr>
+<p style="font-size: 30px">
+  &nbsp;&nbsp;&nbsp;&nbsp;Pat-Reon is an online community for content creators.
+</p>
 
 <script>
 function openCity(evt, cityName) {
