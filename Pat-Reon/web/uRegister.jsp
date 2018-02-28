@@ -17,11 +17,11 @@
 	String cpword = request.getParameter("regCheckPW");
 	if(!pword.trim().equals(cpword.trim())){
 		JOptionPane.showMessageDialog(null, "Passwords do not match!", "Passwords do not match!", JOptionPane.PLAIN_MESSAGE);
-		response.sendRedirect("signup.html");
+		response.sendRedirect("/Pat-Reon/signup.html");
 	}
 	
 	Class.forName("com.mysql.jdbc.Driver");
-	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/patreon","root","password");
+	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/patreon","root","");
 	String ps = "select count(*) from users where email=? or username=?";
         PreparedStatement prepStat = con.prepareStatement(ps);
         prepStat.setString(1, email);
@@ -31,7 +31,7 @@
 	
 	if(rs.getInt("count(*)") == 0){
 		rs.close();
-		String register = "insert into player_table (username, email, password, categoryid, description) values(?,?,?,?,?)";
+		String register = "insert into users (username, email, password, categoryid, description) values(?,?,?,?,?)";
 		prepStat = con.prepareStatement(register);
                 prepStat.setString(1, uname);
                 prepStat.setString(2, email);
@@ -40,11 +40,14 @@
                 prepStat.setString(5, "Just another user");
                 prepStat.executeUpdate();
 		JOptionPane.showMessageDialog(null, "Registration Complete!", "Registration successful", JOptionPane.PLAIN_MESSAGE);
-		Cookie ck = new Cookie("loggedIn", uname);
-		ck.setMaxAge(86400);
+		System.out.println("1");
+                Cookie ck = new Cookie("loggedIn", uname);
+		ck.setMaxAge(21600);
+                System.out.println("2");
 		response.addCookie(ck);
-		
-		response.sendRedirect("index.jsp");
+		System.out.println("3");
+		response.sendRedirect("/Pat-Reon/index.jsp");
+                return;
 	}
 	%>
 </body>

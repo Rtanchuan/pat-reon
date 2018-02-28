@@ -96,17 +96,17 @@ body {font-family: Arial;}
 
 </div>
 <div id="parent">
-    <form id="form_login">
+    <form id="form_login" action="uLogin.jsp">
     <h1>Login</h1>
     <hr>
      <p>
-            <input type="text" id="username" placeholder="Username" />
+            <input type="text" id="username" name="uname" placeholder="Username" />
         </p>
         <p>
-            <input type="password" id="password" placeholder="Password" />
+            <input type="password" id="password" name="pword" placeholder="Password" />
         </p>
         <p>
-            <button id="submitbutton" type="button" >Log In</button>
+            <button id="submitbutton" type="submit" >Log In</button>
         </p>
     </form>
 </div>
