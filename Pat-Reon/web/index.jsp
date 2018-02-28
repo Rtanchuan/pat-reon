@@ -63,9 +63,25 @@ body {font-family: Arial;}
 <body>
 <div class="tab" > <a href="index.html">
         <button class="tablinks" onclick="openCity(event, 'London')" style="float: left;">PAT-REON</button></a>
-  
-   <a href="login.html"><button class="tablinks" onclick="openCity(event, 'Tokyo')">log In</button></a>
-  <a href="signup.html"><button class="tablinks" onclick="">Sign Up</button></a>
+  <%
+      Cookie cookies[] = request.getCookies();
+      boolean isLogged = false;
+      int x = -1;
+      for(int i = 0; i < cookies.length; i++)
+        if(cookies[i].getName().equals("loggedIn")){
+            isLogged = true;
+            x = i;
+            break;
+        }
+            
+      if(isLogged){
+          out.println("<a href=\"profile.html\"><button class=\"tablinks\" onclick=\"\">"+cookies[x].getValue()+"</button></a>"
+                  + "<a href=\"signOut.jsp\"><button class=\"tablinks\" onclick=\"\">Sign out</button></a>");
+      }else{
+          out.println("<a href=\"login.html\"><button class=\"tablinks\" onclick=\"\">log In</button></a>"
+                  + "<a href=\"signup.html\"><button class=\"tablinks\" onclick=\"\">Sign Up</button></a>");
+      }
+  %>
   <a href="categories.html"><button class="tablinks" onclick="">Explore Creators</button></a>
   <div style="float: right; box-sizing: border-box;">
    <form action="/action_page.php">
@@ -75,21 +91,6 @@ body {font-family: Arial;}
   </div>
 
 
-</div>
-
-<div id="London" class="tabcontent" >
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
-</div>
-
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
-</div>
-
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
 </div>
 
 <h1 style="font-size: 100px;">What is Pat-Reon?</h1>

@@ -9,7 +9,7 @@ CREATE TABLE `patreon`.`categories`(
 );
 
 CREATE TABLE `patreon`.`users` (
-  `userid` INT NOT NULL,
+  `userid` INT NOT NULL AUTO_INCREMENT,
   `categoryid` INT NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE `patreon`.`users` (
 );
   
 CREATE TABLE `patreon`.`contents` (
-  `contentid` INT NOT NULL,
+  `contentid` INT NOT NULL AUTO_INCREMENT,
   `userid` INT NOT NULL,
   `content_file` VARCHAR(100),
   `content_message` VARCHAR(100),

@@ -81,7 +81,7 @@ body {font-family: Arial;}
 </head>
 <body>
   <div class="tab" >
-    <a href="index.html"><button class="tablinks" onclick="" style="float: left;">PAT-REON</button></a>
+    <a href="index.jsp"><button class="tablinks" onclick="" style="float: left;">PAT-REON</button></a>
   
     <a href="login.html"><button class="tablinks" onclick=""/>Log In</button></a>
     <a href="categories.html"><button class="tablinks" onclick="">Explore Creators</button></a> 	
@@ -93,17 +93,20 @@ body {font-family: Arial;}
     </div>
   </div>
   <div id="parent">
-    <form id="form_signup">
+    <form id="form_signup" action="uRegister.jsp">
       <h1>Sign-up</h1>
       <hr>
       <p>
-          <input type="text" id="username" placeholder="Username" />
+          <input type="text" id="username" name="regUserName" placeholder="Username" />
       </p>
       <p>
-          <input type="text" id="email" placeholder="Email" />
+          <input type="text" id="email" name="regEMail" placeholder="Email" />
       </p>
       <p>
-          <input type="password" id="password" placeholder="Password" />
+          <input type="password" id="password" name="regPassword" placeholder="Password" />
+      </p>
+      <p>
+          <input type="password" id="confirm" name="regCheckPW" placeholder="Confirm Password" />
       </p>
       <p>
           <button id="submitbutton" type="button">Sign Up</button>
