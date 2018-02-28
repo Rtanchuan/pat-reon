@@ -31,7 +31,8 @@ CREATE TABLE `patreon`.`contents` (
 
 CREATE TABLE `patreon`.`subs` (
   `userid` INT NOT NULL,
-  `subbedtoid` INT NOT NULL
+  `subbedtoid` INT NOT NULL,
+  `sublevel` INT NOT NULL
 );
 
 INSERT INTO `patreon`.`categories`
@@ -46,7 +47,7 @@ VALUES (1, 'Digital Art'),
 
 INSERT INTO `patreon`.`users`
 VALUES (100000, 7, 'dg_kirito', 'dg_kirito@gmail.com', 'password', 'I play LoL all day and my favorite anime is SAO'),
-(100001, 1, 'lephiel', 'lephiel@gmail.com', 'password', 'I like drawing and I hate SAO')
+(100001, 1, 'faeruumi', 'faeruumigmail.com', 'password', 'I like drawing and I hate SAO')
 ;
 
 INSERT INTO `patreon`.`contents`
@@ -55,4 +56,4 @@ VALUES (200000, 100000, 'file.mp4', 'TOP 10 KIRITO MOMENTS IN SAO!', 0),
 ;
 
 INSERT INTO `patreon`.`subs`
-VALUES (100000, 100001);
+VALUES (100000, 100001, 1);
