@@ -22,7 +22,7 @@
                     break;
                 }
             }
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("/Pat-Reon/index.jsp");
 
         %>
     </body>
