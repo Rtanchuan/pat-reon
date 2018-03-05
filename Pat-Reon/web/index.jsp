@@ -68,7 +68,7 @@ body {font-family: Arial;}
       boolean isLogged = false;
       int x = -1;
       for(int i = 0; i < cookies.length; i++)
-        if(cookies[i].getName().equals("loggedIn")){
+        if(cookies[i].getName().equals("loggedIn") && cookies[i].getValue() != null){
             isLogged = true;
             x = i;
             break;

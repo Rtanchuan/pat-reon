@@ -16,6 +16,7 @@
             Cookie cookies[] = request.getCookies();
             for(Cookie c: cookies){
                 if(c.getName().equals("loggedIn")){
+                    c.setValue(null);
                     c.setMaxAge(0);
                     c.setPath("/");
                     response.addCookie(c);
