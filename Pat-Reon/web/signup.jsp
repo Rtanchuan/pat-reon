@@ -110,8 +110,23 @@ body {font-family: Arial;}
       </p>
       <p>
           Select Your Category:
-          <select>
-            <option value="Video & Film">Video & Film</option>
+          <select name="cat">
+            <%@ page import="java.sql.*"%>
+            <%@ page import="javax.sql.*"%>
+            
+            <%
+                Class.forName("com.mysql.jdbc.Driver");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/patreon","root","");
+                String cat = "SELECT * FROM categories";
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(cat);
+                
+                rs.next();
+                while(rs!=null){
+                    out.println("<option value=\""+rs.getString("categoryname")+"\">"+rs.getString("categoryname")+"</option>");
+                }
+            %>
+            <!--<option value="Video & Film">Video & Film</option>
             <option value="Podcasts">Podcasts</option>
             <option value="Crafts & DIY">Crafts & DIY</option>
             <option value="Drawing & Painting">Drawing & Painting</option>
@@ -125,7 +140,7 @@ body {font-family: Arial;}
             <option value="Dance & Theater">Dance & Theater</option>
             <option value="Animation">Animation</option>
             <option value="Education">Education</option>
-            <option value="All">All</option>
+            <option value="All">All</option>-->
           </select>
       </p>
       <p>

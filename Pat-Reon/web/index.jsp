@@ -79,7 +79,7 @@ body {font-family: Arial;}
                   + "<a href=\"signOut.jsp\"><button class=\"tablinks\" onclick=\"\">Sign out</button></a>");
       }else{
           out.println("<a href=\"login.html\"><button class=\"tablinks\" onclick=\"\">log In</button></a>"
-                  + "<a href=\"signup.html\"><button class=\"tablinks\" onclick=\"\">Sign Up</button></a>");
+                  + "<a href=\"signup.jsp\"><button class=\"tablinks\" onclick=\"\">Sign Up</button></a>");
       }
   %>
   <a href="categories.html"><button class="tablinks" onclick="">Explore Creators</button></a>
