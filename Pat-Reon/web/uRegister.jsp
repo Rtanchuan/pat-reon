@@ -15,6 +15,7 @@
 	String uname = request.getParameter("regUserName");
 	String pword = request.getParameter("regPassword");
 	String cpword = request.getParameter("regCheckPW");
+        String cat = request.getParameter("cat");
 	if(!pword.trim().equals(cpword.trim())){
 		JOptionPane.showMessageDialog(null, "Passwords do not match!", "Passwords do not match!", JOptionPane.PLAIN_MESSAGE);
 		response.sendRedirect("/Pat-Reon/signup.html");
@@ -31,21 +32,27 @@
 	
 	if(rs.getInt("count(*)") == 0){
 		rs.close();
-		String register = "insert into users (username, email, password, categoryid, description) values(?,?,?,?,?)";
+                
+                ps = "select categoryid from categories where categoryname like ?";
+                prepStat = con.prepareStatement(ps);
+                prepStat.setString(1, cat);
+                
+                rs = prepStat.executeQuery();
+                rs.next();
+                int uCat = rs.getInt("categoryid");
+                
+                rs.close();
+		String register = "insert into users (username, email, password, categoryid) values(?,?,?,?)";
 		prepStat = con.prepareStatement(register);
                 prepStat.setString(1, uname);
                 prepStat.setString(2, email);
                 prepStat.setString(3, pword);
-                prepStat.setInt(4, 1);
-                prepStat.setString(5, "Just another user");
+                prepStat.setInt(4, uCat);
                 prepStat.executeUpdate();
 		JOptionPane.showMessageDialog(null, "Registration Complete!", "Registration successful", JOptionPane.PLAIN_MESSAGE);
-		System.out.println("1");
                 Cookie ck = new Cookie("loggedIn", uname);
 		ck.setMaxAge(21600);
-                System.out.println("2");
 		response.addCookie(ck);
-		System.out.println("3");
 		response.sendRedirect("/Pat-Reon/index.jsp");
                 return;
 	}
