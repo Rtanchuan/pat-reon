@@ -134,7 +134,25 @@ display: block;
  <div class="tab" >
   <a href="index.jsp"><button class="tablinks" onclick="" style="float: left;">PAT-REON</button></a>
   
-  <a href="signup.jsp"><button class="tablinks" onclick=""/>Sign Up</button></a>
+  <%
+      Cookie cookies[] = request.getCookies();
+      boolean isLogged = false;
+      int x = -1;
+      for(int i = 0; i < cookies.length; i++)
+        if(cookies[i].getName().equals("loggedIn")){
+            isLogged = true;
+            x = i;
+            break;
+        }
+            
+      if(isLogged){
+          out.println("<a href=\"profile.html\"><button class=\"tablinks\" onclick=\"\">"+cookies[x].getValue()+"</button></a>"
+                  + "<a href=\"signOut.jsp\"><button class=\"tablinks\" onclick=\"\">Sign out</button></a>");
+      }else{
+          out.println("<a href=\"login.html\"><button class=\"tablinks\" onclick=\"\">log In</button></a>"
+                  + "<a href=\"signup.jsp\"><button class=\"tablinks\" onclick=\"\">Sign Up</button></a>");
+      }
+  %>
   <a href="categories.html"><button class="tablinks" onclick="">Categories</button></a>     
   <div style="float: right; box-sizing: border-box;">
    <form action="/action_page.php">
