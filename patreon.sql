@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `contents`;
 CREATE TABLE `contents` (
   `contentid` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
-  `content_file` varchar(100) DEFAULT NULL,
+  `content_file` LONGBLOB DEFAULT NULL,
   `content_message` varchar(100) DEFAULT NULL,
   `content_level` int(11) NOT NULL,
   PRIMARY KEY (`contentid`),
